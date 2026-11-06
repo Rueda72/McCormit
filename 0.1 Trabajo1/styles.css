@@ -1,0 +1,235 @@
+/* ===== VARIABLES (cambia los colores aquí) ===== */
+:root {
+  --naranja: #ff7a00;
+  --naranja-oscuro: #d96500;
+  --fondo: #f4f4f4;
+  --oscuro: #1c1c1c;
+  --texto: #222;
+}
+
+/* ===== RESET BÁSICO ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+  line-height: 1.6;
+}
+
+/* ===== BANNER DE NAVEGACIÓN ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 40px;
+  background: var(--naranja);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.menu a:hover {
+  border-color: #fff;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 20px 60px;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("https://images.paramount.tech/uri/mgid:arc:imageassetref:shared.southpark.latam:86c2cc91-3cd3-4ec1-9e1c-15485bed7cf6?quality=0.7&gen=ntrn");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.hero-contenido {
+  max-width: 750px;
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 1.1;
+  margin-bottom: 20px;
+  text-shadow: 3px 3px 0 var(--naranja-oscuro);
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+}
+
+.boton {
+  display: inline-block;
+  padding: 14px 34px;
+  background: var(--naranja);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.boton:hover {
+  background: var(--naranja-oscuro);
+  transform: scale(1.06);
+}
+
+/* ===== SECCIONES ===== */
+.seccion {
+  padding: 90px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.seccion h2 {
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 45px;
+  color: var(--naranja-oscuro);
+}
+
+/* ===== GALERÍA (8 IMÁGENES) ===== */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.tarjeta {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.tarjeta:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2);
+}
+
+.tarjeta img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.tarjeta h3 {
+  padding: 14px 16px 4px;
+  font-size: 1.15rem;
+}
+
+.tarjeta p {
+  padding: 0 16px 18px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* ===== VIDEO ===== */
+.seccion-oscura {
+  max-width: none;
+  background: var(--oscuro);
+}
+
+.seccion-oscura h2 {
+  color: #fff;
+}
+
+.video-contenedor {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+}
+
+.video-contenedor iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--naranja);
+  color: #fff;
+  text-align: center;
+  padding: 26px 20px;
+  font-size: 0.9rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .galeria {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px 16px;
+  }
+
+  .menu {
+    gap: 16px;
+  }
+
+  .seccion {
+    padding: 60px 20px;
+  }
+
+  .galeria {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    background-attachment: scroll;
+  }
+}
